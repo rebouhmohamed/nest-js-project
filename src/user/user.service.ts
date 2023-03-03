@@ -28,6 +28,7 @@ export class UserService {
 
   create(createUserDto: any) {
     this.user.push(createUserDto);
+    return createUserDto;
   }
 
   update(id: string, updateUserDto: any) {

@@ -8,6 +8,8 @@ import {
   Patch,
   Query,
 } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -24,12 +26,12 @@ export class UserController {
     return this.userService.findOne(id);
   }
   @Post()
-  create(@Body() body) {
-    return this.userService.create(body);
+  create(@Body() CreateUserDto: CreateUserDto) {
+    return this.userService.create(CreateUserDto);
   }
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body) {
-    return this.userService.update(id, body);
+  update(@Param('id') id: string, @Body() UpdateUserDto: UpdateUserDto) {
+    return this.userService.update(id, UpdateUserDto);
   }
   @Delete(':id')
   remove(@Param('id') id: string) {
